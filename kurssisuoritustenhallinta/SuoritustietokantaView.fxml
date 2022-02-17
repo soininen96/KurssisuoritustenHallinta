@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="1163.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kurssisuoritustenhallinta.SuoritustietokantaViewController">
+   <left>
+      <VBox prefHeight="612.0" prefWidth="0.0" spacing="2.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets top="30.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <TabPane prefHeight="663.0" prefWidth="1052.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" tabMinWidth="100.0" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab style="-fx-font-size: 15; -fx-font-weight: bold; -fx-background-color: orange; -fx-text-base-color: white; -fx-border-color: black; -fx-border-radius: 5px;" text="Kurssit">
+               <content>
+                  <BorderPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="718.0" prefWidth="1163.0">
+                     <left>
+                        <ComboBox fx:id="cboKurssit" nodeOrientation="LEFT_TO_RIGHT" onAction="#kurssiValittu" prefHeight="0.0" prefWidth="150.0" promptText="Kurssit" BorderPane.alignment="TOP_LEFT">
+                           <BorderPane.margin>
+                              <Insets top="50.0" />
+                           </BorderPane.margin>
+                        </ComboBox>
+                     </left>
+                     <center>
+                        <VBox maxWidth="550.0" prefHeight="148.0" prefWidth="482.0" spacing="5.0" BorderPane.alignment="TOP_LEFT">
+                           <children>
+                              <Label fx:id="lblKurssiVirheIlmoitus" prefHeight="6.0" prefWidth="426.0" text="Tarkista antamasi tiedot!" textFill="RED" visible="false">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="18.0" prefWidth="458.0" spacing="5.0">
+                                 <children>
+                                    <Label alignment="CENTER" text="Kurssin nimi">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblKurssiOpaste" text="(2-50 kirjainta)" visible="false">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="17.0" prefWidth="480.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="txtKurssiNimi" editable="false" prefHeight="25.0" prefWidth="403.0" />
+                                 </children>
+                              </HBox>
+                              <Label alignment="CENTER" layoutX="10.0" layoutY="81.0" text="Opintopisteet">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="cboKurssiOpintoPisteet" prefWidth="150.0" />
+                              <Button fx:id="btnKurssiSuoritukset" mnemonicParsing="false" onAction="#kurssiNaytaSuoritukset" text="Näytä suoritukset">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnKurssiMuokkaus" mnemonicParsing="false" onAction="#kurssiMuokkaa" text="Muokkaa tietoja">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnKurssiTallennus" mnemonicParsing="false" onAction="#kurssiMuokkausTallenna" text="Tallenna" visible="false" />
+                              <HBox prefHeight="22.0" prefWidth="458.0" spacing="15.0">
+                                 <children>
+                                    <Button fx:id="btnLKurssiLisaa" mnemonicParsing="false" onAction="#kurssiLisaaKurssi" text="Lisää Kurssi" />
+                                    <Button fx:id="btnKurssiPeru" mnemonicParsing="false" onAction="#kurssiPeru" text="Peruuta" visible="false" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="BtnPoistaKurssi" disable="true" mnemonicParsing="false" onAction="#poistaKurssi" text="Poista" />
+                           </children>
+                           <padding>
+                              <Insets left="50.0" right="20.0" top="70.0" />
+                           </padding>
+                        </VBox>
+                     </center>
+                     <right>
+                        <Button fx:id="btnUusiKurssiTallenna" mnemonicParsing="false" onAction="#kurssiUusiTallenna" prefHeight="29.0" prefWidth="85.0" text="Tallenna" visible="false" BorderPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <BorderPane.margin>
+                              <Insets bottom="200.0" right="400.0" />
+                           </BorderPane.margin>
+                        </Button>
+                     </right>
+                  </BorderPane>
+               </content>
+          </Tab>
+          <Tab style="-fx-text-base-color: white; -fx-font-size: 15; -fx-font-weight: bold; -fx-background-color: orange; -fx-border-color: black; -fx-border-radius: 5px;" text="Opiskelijat">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <left>
+                        <ComboBox fx:id="cboOpiskelijat" onAction="#opiskelijaValittu" prefWidth="150.0" promptText="Opiskelijat" BorderPane.alignment="TOP_LEFT">
+                           <BorderPane.margin>
+                              <Insets top="50.0" />
+                           </BorderPane.margin>
+                        </ComboBox>
+                     </left>
+                     <center>
+                        <VBox maxWidth="550.0" prefHeight="279.0" spacing="5.0" BorderPane.alignment="TOP_LEFT">
+                           <children>
+                              <Label fx:id="lblOpiskVirheIlmoitus" prefHeight="6.0" prefWidth="426.0" text="Tarkista antamasi tiedot! " textFill="RED" visible="false">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="16.0" prefWidth="478.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Nimi">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblOpisNimiOpaste" text="(2-50 kirjainta)" visible="false">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="txtOpiskNimi" editable="false" />
+                              <HBox prefHeight="10.0" prefWidth="478.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Opiskelijanumero:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblOpiskNum">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="10.0" prefWidth="478.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Sähköposti">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblOpiskSpostiOpaste" text="(5-50 merkkiä)" visible="false">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="txtOpiskSposti" editable="false" layoutX="60.0" layoutY="117.0" />
+                              <HBox prefHeight="15.0" prefWidth="478.0" spacing="5.0">
+                                 <children>
+                                    <Label text="Puhelinnumero">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblOpiskPuhnumOpaste" text="(3-15 numeroa)" visible="false">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="txtOpiskPuhNum" editable="false" layoutX="60.0" layoutY="142.0" prefHeight="25.0" prefWidth="852.0" />
+                              <Button fx:id="btnOpiskSuoritukset" mnemonicParsing="false" onAction="#opiskelijaNaytaSuoritukset" text="Näytä suoritukset">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnOpiskMuokkaus" mnemonicParsing="false" onAction="#opiskelijaMuokkaa" text="Muokkaa tietoja">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnOpiskTallennus" mnemonicParsing="false" onAction="#opiskelijaMuokkausTallenna" text="Tallenna" visible="false" />
+                              <HBox prefHeight="20.0" prefWidth="478.0" spacing="15.0">
+                                 <children>
+                                    <Button fx:id="btnOpiskLisaa" mnemonicParsing="false" onAction="#opiskLisaaOpiskelija" text="Lisää Opiskelja" />
+                                    <Button fx:id="btnOpiskPeru" mnemonicParsing="false" onAction="#opiskelijaPeru" text="Peruuta" visible="false" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="btnPoistaOpiskelija" disable="true" mnemonicParsing="false" onAction="#poistaOpiskelija" text="Poista" />
+                           </children>
+                           <padding>
+                              <Insets left="50.0" right="20.0" top="70.0" />
+                           </padding>
+                        </VBox>
+                     </center>
+                     <right>
+                        <Button fx:id="btnUusiOpiskTallenna" mnemonicParsing="false" onAction="#opiskelijaUusiTallenna" prefHeight="25.0" prefWidth="98.0" text="Tallenna" visible="false" BorderPane.alignment="CENTER_LEFT">
+                           <BorderPane.margin>
+                              <Insets bottom="140.0" right="340.0" />
+                           </BorderPane.margin>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                     </right>
+                  </BorderPane>
+               </content>
+          </Tab>
+        </tabs>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </TabPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

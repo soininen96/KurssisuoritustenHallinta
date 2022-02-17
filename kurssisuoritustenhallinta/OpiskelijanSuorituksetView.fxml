@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kurssisuoritustenhallinta.OpiskelijanSuorituksetViewController">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Kurssit">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cboSuoritukset" onAction="#kurssiValittu" prefWidth="150.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </ComboBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" top="39.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <VBox maxWidth="500.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Kurssin nimi">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtKurssiNimi" editable="false" />
+            <HBox prefHeight="8.0" prefWidth="485.0" spacing="5.0">
+               <children>
+                  <Label text="Kurssi ID:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblKurssiID">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="2.0" prefWidth="485.0">
+               <children>
+                  <Label text="Opintopisteet: ">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblOpintoPisteet">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="15.0" prefWidth="485.0" spacing="5.0">
+               <children>
+                  <Label text="Arvosana:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblArvosana">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label layoutX="25.0" layoutY="162.0" text="Suoritus Pvm">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="dteSuoritusPvm" disable="true" editable="false" />
+         </children>
+         <padding>
+            <Insets left="15.0" top="40.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>
